@@ -28,22 +28,26 @@ import java.math.BigDecimal;
 
 public class BtcInfo extends BtcInfoBase {
 	private static final long serialVersionUID = -5800958166892028401L;
-	private long version = 0;
+	private String version = "";
 	private long protocolVersion = 0;
 	private long walletVersion = 0;
 	private BigDecimal balance = BigDecimal.ZERO;
-	private long timeOffset = 0;
+	private BigDecimal newMint = BigDecimal.ZERO;
+	private BigDecimal stake = BigDecimal.ZERO;
+	private BigDecimal moneySupply = BigDecimal.ZERO;
+	//private long timeOffset = 0;
 	private long connections = 0;
 	private String proxy = "";
+	private String ip = "0.0.0.0";
 	private long keyPoolOldest = 0;
 	private long keyPoolSize = 0;
 	private BigDecimal transactionFee = BigDecimal.ZERO;;
 
-	public long getVersion() {
+	public String getVersion() {
 		return version;
 	}
 
-	public void setVersion(long version) {
+	public void setVersion(String version) {
 		this.version = version;
 	}
 
@@ -70,14 +74,38 @@ public class BtcInfo extends BtcInfoBase {
 	public void setBalance(BigDecimal balance) {
 		this.balance = BtcUtil.notNull(balance);
 	}
-
-	public long getTimeOffset() {
-		return timeOffset;
+	
+	public BigDecimal getNewMint() {
+		return newMint;
 	}
 
-	public void setTimeOffset(long timeOffset) {
-		this.timeOffset = timeOffset;
+	public void setNewMint(BigDecimal balance) {
+		this.newMint = BtcUtil.notNull(balance);
 	}
+	
+	public BigDecimal getStake() {
+		return stake;
+	}
+
+	public void setStake(BigDecimal balance) {
+		this.stake = BtcUtil.notNull(balance);
+	}
+	
+	public BigDecimal getMoneySupply() {
+		return moneySupply;
+	}
+
+	public void setMoneySupply(BigDecimal balance) {
+		this.moneySupply = BtcUtil.notNull(balance);
+	}
+
+	//public long getTimeOffset() {
+	//	return timeOffset;
+	//}
+
+	//public void setTimeOffset(long timeOffset) {
+	//	this.timeOffset = timeOffset;
+	//}
 
 	public long getConnections() {
 		return connections;
@@ -93,6 +121,14 @@ public class BtcInfo extends BtcInfoBase {
 
 	public void setProxy(String proxy) {
 		this.proxy = BtcUtil.notNull(proxy);
+	}
+	
+	public String getIP() {
+		return ip;
+	}
+
+	public void setIP(String proxy) {
+		this.ip = BtcUtil.notNull(proxy);
 	}
 
 	public long getKeyPoolOldest() {
@@ -130,12 +166,20 @@ public class BtcInfo extends BtcInfoBase {
 		builder.append(walletVersion);
 		builder.append(", balance=");
 		builder.append(balance);
-		builder.append(", timeOffset=");
-		builder.append(timeOffset);
+		builder.append(", newMint=");
+		builder.append(newMint);
+		builder.append(", stake=");
+		builder.append(stake);
+		builder.append(", moneySupply=");
+		builder.append(moneySupply);
+		//builder.append(", timeOffset=");
+		//builder.append(timeOffset);
 		builder.append(", connections=");
 		builder.append(connections);
 		builder.append(", proxy=");
 		builder.append(proxy);
+		builder.append(", ip=");
+		builder.append(ip);
 		builder.append(", keyPoolOldest=");
 		builder.append(keyPoolOldest);
 		builder.append(", keyPoolSize=");

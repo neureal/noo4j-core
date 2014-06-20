@@ -24,6 +24,8 @@
 
 package org.noo4j.core;
 
+import java.math.BigDecimal;
+
 public class BtcMiningInfo extends BtcInfoBase {
 	private static final long serialVersionUID = -1675343423503889069L;
 	private long currentBlockSize = 0;
@@ -31,6 +33,7 @@ public class BtcMiningInfo extends BtcInfoBase {
 	private boolean generate = false;
 	private long generateProcessorLimit = 0;
 	private long hashesPerSecond = 0;
+	private BigDecimal networkGhps = BigDecimal.ZERO;
 	private long pooledTransactions = 0;
 
 	public long getCurrentBlockSize() {
@@ -72,6 +75,14 @@ public class BtcMiningInfo extends BtcInfoBase {
 	public void setHashesPerSecond(long hashesPerSecond) {
 		this.hashesPerSecond = hashesPerSecond;
 	}
+	
+	public BigDecimal getNetworkGhps() {
+		return networkGhps;
+	}
+
+	public void setNetworkGhps(BigDecimal difficulty) {
+		this.networkGhps = BtcUtil.notNull(difficulty);
+	}
 
 	public long getPooledTransactions() {
 		return pooledTransactions;
@@ -94,6 +105,8 @@ public class BtcMiningInfo extends BtcInfoBase {
 		builder.append(generateProcessorLimit);
 		builder.append(", hashesPerSecond=");
 		builder.append(hashesPerSecond);
+		builder.append(", networkGhps=");
+		builder.append(networkGhps);
 		builder.append(", pooledTransactions=");
 		builder.append(pooledTransactions);
 		builder.append(", getBlocks()=");

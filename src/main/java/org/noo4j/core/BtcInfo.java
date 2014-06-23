@@ -32,6 +32,7 @@ public class BtcInfo extends BtcInfoBase {
 	private long protocolVersion = 0;
 	private long walletVersion = 0;
 	private BigDecimal balance = BigDecimal.ZERO;
+	private BigDecimal unconfirmed = BigDecimal.ZERO;
 	private BigDecimal newMint = BigDecimal.ZERO;
 	private BigDecimal stake = BigDecimal.ZERO;
 	private BigDecimal moneySupply = BigDecimal.ZERO;
@@ -73,6 +74,14 @@ public class BtcInfo extends BtcInfoBase {
 
 	public void setBalance(BigDecimal balance) {
 		this.balance = BtcUtil.notNull(balance);
+	}
+	
+	public BigDecimal getUnconfirmed() {
+		return unconfirmed;
+	}
+
+	public void setUnconfirmed(BigDecimal balance) {
+		this.unconfirmed = BtcUtil.notNull(balance);
 	}
 	
 	public BigDecimal getNewMint() {
@@ -166,6 +175,8 @@ public class BtcInfo extends BtcInfoBase {
 		builder.append(walletVersion);
 		builder.append(", balance=");
 		builder.append(balance);
+		builder.append(", unconfirmed=");
+		builder.append(unconfirmed);
 		builder.append(", newMint=");
 		builder.append(newMint);
 		builder.append(", stake=");

@@ -31,6 +31,7 @@ public class BtcInfo extends BtcInfoBase {
 	private String version = "";
 	private long protocolVersion = 0;
 	private long walletVersion = 0;
+	private BigDecimal coinage = BigDecimal.ZERO;
 	private BigDecimal balance = BigDecimal.ZERO;
 	private BigDecimal unconfirmed = BigDecimal.ZERO;
 	private BigDecimal newMint = BigDecimal.ZERO;
@@ -68,6 +69,14 @@ public class BtcInfo extends BtcInfoBase {
 		this.walletVersion = walletVersion;
 	}
 
+	public BigDecimal getCoinage() {
+		return coinage;
+	}
+
+	public void setCoinage(BigDecimal coinage) {
+		this.coinage = BtcUtil.notNull(coinage);
+	}
+	
 	public BigDecimal getBalance() {
 		return balance;
 	}
@@ -80,32 +89,32 @@ public class BtcInfo extends BtcInfoBase {
 		return unconfirmed;
 	}
 
-	public void setUnconfirmed(BigDecimal balance) {
-		this.unconfirmed = BtcUtil.notNull(balance);
+	public void setUnconfirmed(BigDecimal unconfirmed) {
+		this.unconfirmed = BtcUtil.notNull(unconfirmed);
 	}
 	
 	public BigDecimal getNewMint() {
 		return newMint;
 	}
 
-	public void setNewMint(BigDecimal balance) {
-		this.newMint = BtcUtil.notNull(balance);
+	public void setNewMint(BigDecimal newMint) {
+		this.newMint = BtcUtil.notNull(newMint);
 	}
 	
 	public BigDecimal getStake() {
 		return stake;
 	}
 
-	public void setStake(BigDecimal balance) {
-		this.stake = BtcUtil.notNull(balance);
+	public void setStake(BigDecimal stake) {
+		this.stake = BtcUtil.notNull(stake);
 	}
 	
 	public BigDecimal getMoneySupply() {
 		return moneySupply;
 	}
 
-	public void setMoneySupply(BigDecimal balance) {
-		this.moneySupply = BtcUtil.notNull(balance);
+	public void setMoneySupply(BigDecimal moneySupply) {
+		this.moneySupply = BtcUtil.notNull(moneySupply);
 	}
 
 	//public long getTimeOffset() {
@@ -173,6 +182,8 @@ public class BtcInfo extends BtcInfoBase {
 		builder.append(protocolVersion);
 		builder.append(", walletVersion=");
 		builder.append(walletVersion);
+		builder.append(", coinage=");
+		builder.append(coinage);
 		builder.append(", balance=");
 		builder.append(balance);
 		builder.append(", unconfirmed=");

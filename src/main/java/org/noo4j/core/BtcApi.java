@@ -26,10 +26,17 @@ package org.noo4j.core;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 
 public interface BtcApi {
+	public String submitVote(String api, BigDecimal payment,
+			BigInteger tick_count) throws BtcException;
+	
+	public String submitWork(String api, BigDecimal payment,
+			BigInteger tick_index, String work) throws BtcException;
+	
 	public String addMultiSignatureAddress(long required, List<String> keys,
 			String account) throws BtcException;
 
@@ -59,6 +66,9 @@ public interface BtcApi {
 	public List<String> getAddressesByAccount(String account)
 			throws BtcException;
 
+	public BigDecimal getCoinage(String account)
+			throws BtcException;
+	
 	public BigDecimal getBalance(String account, long minConfirms)
 			throws BtcException;
 

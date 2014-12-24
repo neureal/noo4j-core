@@ -25,6 +25,7 @@
 package org.noo4j.core;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -53,6 +54,10 @@ public class BtcUtil {
 
 	public static BigDecimal notNull(BigDecimal value) {
 		return (value == null) ? BigDecimal.ZERO : value;
+	}
+	
+	public static BigInteger notNull(BigInteger value) {
+		return (value == null) ? BigInteger.ZERO : value;
 	}
 
 	public static BtcAccount notNull(BtcAccount value) {

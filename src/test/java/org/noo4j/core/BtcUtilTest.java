@@ -13,23 +13,23 @@ public class BtcUtilTest {
 
     @Test
     public void atLeast() {
-        assertEquals(10,BtcUtil.atLeast(10,10));
-        assertEquals(11,BtcUtil.atLeast(11,10));
-        assertEquals(10,BtcUtil.atLeast(9,10));
+        assertEquals(10, BtcUtil.atLeast(10, 10));
+        assertEquals(11, BtcUtil.atLeast(11, 10));
+        assertEquals(10, BtcUtil.atLeast(9, 10));
 
         BigDecimal decimal = new BigDecimal(1.1);
-        assertEquals(new BigDecimal(1.1),BtcUtil.atLeast(decimal,1.1));
-        assertEquals(new BigDecimal(1.1),BtcUtil.atLeast(decimal,1.0));
-        assertEquals(BigDecimal.valueOf(1.0),BtcUtil.atLeast(null,1.0));
+        assertEquals(new BigDecimal(1.1), BtcUtil.atLeast(decimal, 1.1));
+        assertEquals(new BigDecimal(1.1), BtcUtil.atLeast(decimal, 1.0));
+        assertEquals(BigDecimal.valueOf(1.0), BtcUtil.atLeast(null, 1.0));
 
-        assertNotEquals(new BigDecimal(1.2),BtcUtil.atLeast(decimal,1.2));
-        assertEquals(BigDecimal.valueOf(1.2),BtcUtil.atLeast(decimal,1.2));
-        assertEquals(new BigDecimal(1.2).doubleValue(), BtcUtil.atLeast(decimal,1.2).doubleValue(), .001);
+        assertNotEquals(new BigDecimal(1.2), BtcUtil.atLeast(decimal, 1.2));
+        assertEquals(BigDecimal.valueOf(1.2), BtcUtil.atLeast(decimal, 1.2));
+        assertEquals(new BigDecimal(1.2).doubleValue(), BtcUtil.atLeast(decimal, 1.2).doubleValue(), .001);
     }
 
 
     @Test
-    public void testNotNull(){
+    public void testNotNull() {
 
         //Passing null is a compilation error.
         //assertNotNull(BtcUtil.notNull(null));
@@ -40,11 +40,11 @@ public class BtcUtilTest {
     }
 
     @Test
-    public void testNil(){
+    public void testNil() {
         assertNull(BtcUtil.nil(null));
         assertNull(BtcUtil.nil("null"));
         assertNull(BtcUtil.nil(""));
         assertNotNull(BtcUtil.nil("foo"));
-        
+
     }
 }

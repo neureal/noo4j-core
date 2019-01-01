@@ -26,17 +26,17 @@ public class BtcUtilTest {
         assertEquals(BigDecimal.valueOf(1.2), BtcUtil.atLeast(decimal, 1.2));
         assertEquals(new BigDecimal(1.2).doubleValue(), BtcUtil.atLeast(decimal, 1.2).doubleValue(), .001);
     }
-
-
+    
     @Test
     public void testNotNull() {
 
-        //Passing null is a compilation error.
-        //assertNotNull(BtcUtil.notNull(null));
+        BigDecimal decimal = null;
+        assertNotNull(BtcUtil.notNull(decimal));
+        BtcScript script = null;
+        assertNotNull(BtcUtil.notNull(script));
 
         assertNotNull(BtcUtil.notNull(new BigDecimal(0)));
         assertNotNull(BtcUtil.notNull("null"));
-
     }
 
     @Test
